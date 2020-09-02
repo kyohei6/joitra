@@ -1,0 +1,13 @@
+<div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @post, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+        </div>
+        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+      <%= render 'posts/posts', posts: @posts %>
+    </div>
+</div>
