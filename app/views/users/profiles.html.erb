@@ -1,0 +1,46 @@
+<style>
+　header {
+  padding:16px;
+}
+  .main {
+    margin-top:100px;
+  }
+  
+</style>
+<header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">JOITRA</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <ul class="nav nav-tabs nav-justified mb-3">
+          <li><%= link_to 'post', posts_path %></li>
+          <li><%= link_to 'logout', logout_path, method: :delete %></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+<div class="main">
+<div class="row">
+  <aside class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @user.name %></h3>
+      </div>
+      <div class="panel-body al-c">
+          <% if @user.image? %>
+            <%= image_tag @user.image, :class => "mw50" %>
+          <% else %>
+            <%= image_tag("/images/icon/icon-mama-02-160px.png") %>
+          <% end %>
+      </div>
+    </div>
+  </aside>
+  <div class="col-md-8">
+  <p><span class="orange b"><%= @user.name %></span>
+  &nbsp;<%= @user.address %>
+  <% if @user.age.present? %> &nbsp;<%= @user.age %>代 <% end %>
+  &nbsp;<%= @user.sex %></p>
+  <p class="orange b">自己紹介</p>
+  <p><%= @user.introduce %></p>
+  </div>
+</div>
+</div>

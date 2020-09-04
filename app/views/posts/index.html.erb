@@ -1,3 +1,19 @@
+<style>
+　header {
+  padding:16px;
+  margin-top:100px;
+</style>
+<header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">JOITRA</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <ul class="nav nav-tabs nav-justified mb-3">
+          <li><%= link_to 'post', posts_path %></li>
+          <li><%= link_to 'logout', logout_path, method: :delete %></li>
+        </ul>
+      </nav>
+    </div>
+</header>
 <div class="row">
     <aside class="col-sm-4">
       <%= form_with(model: @post, local: true) do |f| %>

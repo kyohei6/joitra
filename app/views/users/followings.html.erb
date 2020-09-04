@@ -11,12 +11,10 @@ header {
       <!-- <h3 class="masthead-brand">Cover</h3> -->
       <h3 class="masthead-brand">JOITRA</h3>
       <nav class="nav nav-masthead justify-content-center">
-        <!-- <a class="nav-link active" href="#">Home</a> -->
-        <a class="nav-link active" href="">post</a>
-        <!-- <a class="nav-link" href="#">Features</a> -->
-        <a class="nav-link" href="login"></a>
-        <!-- <a class="nav-link" href="#">Contact</a> -->
-        <a class="nav-link" href="signup">logout</a>
+        <ul class="nav nav-tabs nav-justified mb-3">
+          <li><%= link_to 'post', posts_path %></li>
+          <li><%= link_to 'logout', logout_path, method: :delete %></li>
+        </ul>
       </nav>
     </div>
 </header>
@@ -37,9 +35,9 @@ header {
     <ul class="nav nav-tabs nav-justified mb-3">
       <li class="nav-item"><a href="#" class="nav-link">profile</a></li>
       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">post  <span class="badge badge-secondary"><%= @count_posts %></span></a></li>
-      <li class="nav-item"><a href="#" class="nav-link">like</a></li>
+      <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">like  <span class="badge badge-secondary"><%= @count_likes %></span></a></li>
       <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
-      <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
+      <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
       <li class="nav-item"><a href="#" class="nav-link">chat</a></li>
     </ul>
     <%= render 'users', users: @followings %>

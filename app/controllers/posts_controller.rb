@@ -2,20 +2,20 @@ class PostsController < ApplicationController
   before_action :require_user_logged_in
   before_action :correct_user, only: [:destroy]
 
-　def index
-　  @post = current_user.posts.build  # form_with 用
-    @posts = current_user.posts.order(id: :desc).page(params[:page])
-　end
+  def index
+    @post = current_user.posts.build
+    @posts = current_user.feed_posts.order(id: :desc).page(params[:page])
+  end
 
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = 'メッセージを投稿しました。'
-      redirect_to root_url
+      redirect_to posts_url
     else
-      @posts = current_user.posts.order(id: :desc).page(params[:page])
+      @posts = current_user.feed_microposts.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
-      render 'toppages/index'
+      render "posts#index"
     end
   end
 

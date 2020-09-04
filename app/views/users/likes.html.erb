@@ -8,12 +8,12 @@ header {
 </style>
 <header class="masthead mb-auto">
     <div class="inner">
-      <!-- <h3 class="masthead-brand">Cover</h3> -->
       <h3 class="masthead-brand">JOITRA</h3>
       <nav class="nav nav-masthead justify-content-center">
         <ul class="nav nav-tabs nav-justified mb-3">
           <li><%= link_to 'post', posts_path %></li>
           <li><%= link_to 'logout', logout_path, method: :delete %></li>
+        </ul>
         </ul>
       </nav>
     </div>
@@ -40,7 +40,7 @@ header {
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
       <li class="nav-item"><a href="#" class="nav-link">chat</a></li>
     </ul>
-    <%= render 'users', users: @followers %>
+    <%= render 'posts/posts', posts: @likes %>
   </div>
 </div>
-</div>
+</div
