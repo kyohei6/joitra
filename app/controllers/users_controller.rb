@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show, :followings, :followers, :likes]
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :update, :followings, :followers, :likes, :profiles]
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(25)
@@ -29,6 +29,20 @@ class UsersController < ApplicationController
   
   def edit
   @user = User.find(params[:id])
+  end
+  
+  def update
+    if current_user == @user
+      if @user.update(user_params)
+        flash[:success] = 'ユーザー情報を編集しました。'
+        render :edit
+      else
+        flash.now[:danger] = 'ユーザー情報の編集に失敗しました。'
+        render :edit
+      end   
+    else
+    redirect_to root_url
+    end
   end
   
   def followings

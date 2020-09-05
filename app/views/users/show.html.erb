@@ -11,7 +11,7 @@ header {
       <h3 class="masthead-brand">JOITRA</h3>
       <nav class="nav nav-masthead justify-content-center">
         <ul class="nav nav-tabs nav-justified mb-3">
-          <li><%= link_to 'post', posts_path %></li>
+          <li><%= link_to 'post', posts_path, method: :get %></li>
           <li><%= link_to 'logout', logout_path, method: :delete %></li>
         </ul>
       </nav>
@@ -32,7 +32,7 @@ header {
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#" class="nav-link">profile</a></li>
+      <li class="nav-item"><a href="<%= profiles_user_path(@user) %>" class="nav-link">profile</a></li>
       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">post  <span class="badge badge-secondary"><%= @count_posts %></span></a></li>
       <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">like  <span class="badge badge-secondary"><%= @count_likes %></span></a></li>
       <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>

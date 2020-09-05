@@ -29,18 +29,21 @@
           <% if @user.image? %>
             <%= image_tag @user.image, :class => "mw50" %>
           <% else %>
-            <%= image_tag("/images/icon/icon-mama-02-160px.png") %>
+          <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
           <% end %>
       </div>
     </div>
   </aside>
   <div class="col-md-8">
-  <p><span class="orange b"><%= @user.name %></span>
-  &nbsp;<%= @user.address %>
-  <% if @user.age.present? %> &nbsp;<%= @user.age %>代 <% end %>
-  &nbsp;<%= @user.sex %></p>
-  <p class="orange b">自己紹介</p>
-  <p><%= @user.introduce %></p>
+  <br>
+<h2>ユーザー情報</h2>
+<br>
+<br>
+<hr>
+<p>名前：<%= @user.name %></p>
+<p>年齢：<%= @user.age %></p>
+<p>性別：<%= @user.sex %></p>
+  <a href="<%= edit_user_path(@user) %>" class="btn btn-success">ユーザー情報を編集する</a>
   </div>
 </div>
 </div>
