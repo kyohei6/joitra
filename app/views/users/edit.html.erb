@@ -1,3 +1,24 @@
+<style>
+header {
+  padding:16px;
+}
+  .main {
+    margin-top:100px;
+  }
+</style>
+<header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">JOITRA</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <ul class="nav nav-tabs nav-justified mb-3">
+          <li><%= link_to 'post', posts_path %></li>
+          <li><%= link_to 'logout', logout_path, method: :delete %></li>
+        </ul>
+        </ul>
+      </nav>
+    </div>
+</header>
+<div class="main">
 <div class="row">
   
   <%= form_with(model: @user, local: true) do |f| %>
@@ -7,22 +28,19 @@
         <%= f.label :name, '名前' %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
-
-      <div class="form-group">
-        <%= f.label :age, '年齢', class:'control-label' %>
-        <%= f.select :age, [["",""], ["10代","10"], ["20代","20"], ["30代","30"], ["40代","40"], ["50代","50"], ["60代","60"], ["70代以上","70"] ], {},   class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :sex, '性別', class:'control-label' %>
-        <%= f.select :sex, [["",""], ["女性","女性"], ["男性","男性"]], {},   class: 'form-control' %>
-      </div>
-
       
+      <div class="form-group">
+        <%= f.label :gym, '通っているジム' %>
+        <%= f.text_field :gym, class: 'form-control' %>
+      </div>
       
+      <div class="form-group">
+        <%= f.label :reason, 'トレーニング目的' %>
+        <%= f.text_field :reason, class: 'form-control' %>
+      </div>
       
       <div class="al-c"><%= f.submit 'プロフィール編集を完了する', class: 'btn btn-primary' %></div>
     <% end %>
 </div>
-
+</div>
  

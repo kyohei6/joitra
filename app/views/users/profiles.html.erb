@@ -37,12 +37,10 @@
   <div class="col-md-8">
   <br>
 <h2>ユーザー情報</h2>
-<br>
-<br>
 <hr>
 <p>名前：<%= @user.name %></p>
-<p>年齢：<%= @user.age %></p>
-<p>性別：<%= @user.sex %></p>
+<p>通っているジム：<%= @user.gym %></p>
+<p>トレーニング目的：<%= @user.reason %></p>
   <a href="<%= edit_user_path(@user) %>" class="btn btn-success">ユーザー情報を編集する</a>
   </div>
 </div>
