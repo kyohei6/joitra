@@ -69,11 +69,13 @@ class UsersController < ApplicationController
   end
   
   def chats
+    @user = User.find(params[:id])
         #チャット
-        if user_signed_in?
+        if logged_in?
             #Entry内のuser_idがcurrent_userと同じEntry
             @currentUserEntry = Entry.where(user_id: current_user.id)
             #Entry内のuser_idがMYPAGEのparams.idと同じEntry
+            @user = User.find(params[:id])
             @userEntry = Entry.where(user_id: @user.id)
                 #@user.idとcurrent_user.idが同じでなければ
                 unless @user.id == current_user.id

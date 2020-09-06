@@ -60,4 +60,3 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'pry-byebug', group: :development
 
-gem 'devise'

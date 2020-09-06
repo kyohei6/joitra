@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if logged_in? %>
     <% unless @user.id == current_user.id %>
         <!-- 既にroomが存在していれば既存のroomへ -->
         <% if @isRoom == true %>
