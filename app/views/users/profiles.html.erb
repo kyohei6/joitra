@@ -7,16 +7,29 @@
   }
   
 </style>
-<header class="masthead mb-auto">
-    <div class="inner">
-      <h3 class="masthead-brand">JOITRA</h3>
-      <nav class="nav nav-masthead justify-content-center">
-        <ul class="nav nav-tabs nav-justified mb-3">
-          <li><%= link_to 'post', posts_path %></li>
-          <li><%= link_to 'logout', logout_path, method: :delete %></li>
-        </ul>
-      </nav>
+<header>
+  <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="/">JOITRA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="<%= users_path %>" class="nav-link">USER</a></li>
+        <li class="nav-item"><a href="<%= posts_path %>" class="nav-link">POST</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">CHAT</a></li>
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user) %></li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete %></li>
+            </ul>
+        </li>
+      </ul>
     </div>
+  </nav>
 </header>
 <div class="main">
 <div class="row">
@@ -39,8 +52,13 @@
 <h2>ユーザー情報</h2>
 <hr>
 <p>名前：<%= @user.name %></p>
+<p>年齢：<%= @user.age %></p>
+<p>性別：<%= @user.sex %></p>
+<p>地域：<%= @user.address %></p>
 <p>通っているジム：<%= @user.gym %></p>
 <p>トレーニング目的：<%= @user.reason %></p>
+<p>トレーニング歴：<%= @user.history %></p>
+<p>自己紹介：<%= @user.introduce %></p>
   <a href="<%= edit_user_path(@user) %>" class="btn btn-success">ユーザー情報を編集する</a>
   </div>
 </div>

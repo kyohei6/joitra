@@ -8,7 +8,6 @@ class User < ApplicationRecord
   validates :address, length: { maximum: 50 }
   
   has_secure_password
-
   has_many :posts
   has_many :favorites
   has_many :likes, through: :favorites, source: :post, dependent: :destroy

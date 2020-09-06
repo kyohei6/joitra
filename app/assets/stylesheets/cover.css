@@ -51,6 +51,7 @@ body {
 
 .masthead-brand {
   margin-bottom: 0;
+  color:#fff;
 }
 
 .nav-masthead .nav-link {
@@ -102,4 +103,12 @@ body {
  */
 .mastfoot {
   color: rgba(255, 255, 255, .5);
+}
+
+.cover-heading {
+  color:#fff;
+}
+
+.lead {
+  color:#fff;
 }

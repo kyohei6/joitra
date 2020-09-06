@@ -6,17 +6,29 @@ header {
     margin-top:100px;
   }
 </style>
-<header class="masthead mb-auto">
-    <div class="inner">
-      <h3 class="masthead-brand">JOITRA</h3>
-      <nav class="nav nav-masthead justify-content-center">
-        <ul class="nav nav-tabs nav-justified mb-3">
-          <li><%= link_to 'post', posts_path %></li>
-          <li><%= link_to 'logout', logout_path, method: :delete %></li>
-        </ul>
-        </ul>
-      </nav>
+<header>
+  <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="/">JOITRA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a href="<%= users_path %>" class="nav-link">USER</a></li>
+        <li class="nav-item"><a href="<%= posts_path %>" class="nav-link">POST</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">CHAT</a></li>
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-item"><%= link_to 'My profile', user_path(current_user) %></li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete %></li>
+            </ul>
+        </li>
+      </ul>
     </div>
+  </nav>
 </header>
 <div class="main">
 <div class="row">
@@ -30,6 +42,21 @@ header {
       </div>
       
       <div class="form-group">
+        <%= f.label :age, '年齢', class:'control-label' %>
+        <%= f.select :age, [["",""], ["10代","10"], ["20代","20"], ["30代","30"], ["40代","40"], ["50代","50"], ["60代","60"], ["70代以上","70"] ], {},   class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :sex, '性別', class:'control-label' %>
+        <%= f.select :sex, [["",""], ["女性","女性"], ["男性","男性"]], {},   class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :address, '地域' %>
+        <%= f.text_field :address, class: 'form-control' %>
+      </div>
+
+     <div class="form-group">
         <%= f.label :gym, '通っているジム' %>
         <%= f.text_field :gym, class: 'form-control' %>
       </div>
@@ -39,6 +66,16 @@ header {
         <%= f.text_field :reason, class: 'form-control' %>
       </div>
       
+      <div class="form-group">
+        <%= f.label :history, 'トレーニング歴' %>
+        <%= f.text_field :history, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :introduce, '自己紹介' %>
+        <%= f.text_area :introduce, :maxlength => "100", :size => "80x5",  class: 'form-control'  %>
+     </div>
+
       <div class="al-c"><%= f.submit 'プロフィール編集を完了する', class: 'btn btn-primary' %></div>
     <% end %>
 </div>
