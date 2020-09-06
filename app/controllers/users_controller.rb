@@ -69,7 +69,6 @@ class UsersController < ApplicationController
   end
   
   def chats
-    @user = User.find(params[:id])
         #チャット
         if user_signed_in?
             #Entry内のuser_idがcurrent_userと同じEntry
