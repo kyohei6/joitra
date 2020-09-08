@@ -14,8 +14,6 @@ Rails.application.routes.draw do
       get :followers
       get :likes
       get :profiles
-    end
-    collection do
       get :chats
     end
   end

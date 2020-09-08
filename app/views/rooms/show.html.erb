@@ -1,3 +1,10 @@
+<style>
+    body {
+      background-image: url("<%= asset_path('joitra7.jpg') %>");
+      background-size: cover;
+    }
+    
+</style>
 <% @entries.each do |e| %>
    <!-- eachで回したentryユーザーがログインユーザーであれば、@classに"current_user"の文字列を代入する。ログインユーザーであれば、空白を代入する -->
     <% current_user == e.user ? @class = "current_user" : @class = ""  %>
@@ -8,10 +15,6 @@
            <h5 class="text-left <%= @class %>" id="<%= @class %>" data-id="<%= e.user.id %>"></h5>
         <% end %>
 <% end %>
-<!-- メッセージ内容は、パーシャルにします -->
-<div id="direct_messages" data-room_id="<%= @room.id %>">
-    <%= render @direct_messages %>
-</div>
 <!-- メッセージフォーム -->
 <form>
     <label style="color: white;" id="target">新しいメッセージを作成</label><br>

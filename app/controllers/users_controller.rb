@@ -75,10 +75,9 @@ class UsersController < ApplicationController
             #Entry内のuser_idがcurrent_userと同じEntry
             @currentUserEntry = Entry.where(user_id: current_user.id)
             #Entry内のuser_idがMYPAGEのparams.idと同じEntry
-            @user = User.find(params[:id])
             @userEntry = Entry.where(user_id: @user.id)
                 #@user.idとcurrent_user.idが同じでなければ
-                unless @user.id == current_user.id
+        unless @user.id == current_user.id
                   @currentUserEntry.each do |cu|
                     @userEntry.each do |u|
                       #もしcurrent_user側のルームidと＠user側のルームidが同じであれば存在するルームに飛ぶ
@@ -93,7 +92,7 @@ class UsersController < ApplicationController
                     @room = Room.new
                     @entry = Entry.new
                   end
-                end
+        end
         end
   end
   

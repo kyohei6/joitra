@@ -5,14 +5,17 @@
             <td>
 　　　　　　　　　<!-- 名前からroomの詳細に飛べるようにリンク化 -->
                 <%= link_to room_path(e.room.id) do %>
-                    <%= attachment_image_tag e.user, :profile_image, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "30x30" %>
                     <%= e.user.name %>
                 <% end %>
             </td>
             <td>
                <!-- 最新メッセージ内容の最初の7文字を表示する -->
-                <% dm = DirectMessage.find_by(id: e.room.direct_message_ids.last).content %>
+                <% direct_message = DirectMessage.find_by(id: e.room.direct_message_ids.last) %>
+                <% if direct_message.nil? %>
+                <% else %>
+                <% direct_message.content %>
                 <%= truncate(dm, length: 10) %>
+                <% end %>
             </td>
             <td>
                 <h6 style="color: #C0C0C0;"><%= e.updated_at.strftime("%Y/%m/%d %H:%M") %></h6>
