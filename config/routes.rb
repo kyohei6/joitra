@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
-  resources :rooms
+  resources :messages, only: [:create]
+  resources :rooms, only: [:index,:create,:show,:destroy]
 end

@@ -8,7 +8,10 @@
   .card-title {
     color:#000;
   }
-  
+  body {
+      background-image: url("<%= asset_path('joitra14.jpg') %>");
+      background-size: cover;
+    }
 </style>
 <header>
   <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
@@ -47,7 +50,7 @@
     </div>
     <%= render 'relationships/follow_button', user: @user %>
     <% unless current_user == @user %>
-      <li class="nav-item"><a href="<%= chats_user_path(@user) %>" class="nav-link">chat</a></li>
+    <%= link_to 'chat', chats_user_path(@user), class: 'btn btn-warning btn-block' %>
     <% end %>
   </aside>
   <div class="col-sm-8">

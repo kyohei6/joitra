@@ -5,7 +5,10 @@
   .main {
     margin-top:100px;
   }
-  
+  body {
+      background-image: url("<%= asset_path('joitra14.jpg') %>");
+      background-size: cover;
+    }
 </style>
 <header>
   <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
@@ -18,7 +21,7 @@
       <ul class="navbar-nav">
         <li class="nav-item"><a href="<%= users_path %>" class="nav-link">USER</a></li>
         <li class="nav-item"><a href="<%= posts_path %>" class="nav-link">POST</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">CHAT</a></li>
+        <li class="nav-item"><a href="<%= rooms_path %>" class="nav-link">CHAT</a></li>
         <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
             <ul class="dropdown-menu dropdown-menu-right">
@@ -59,7 +62,9 @@
 <p>トレーニング目的：<%= @user.reason %></p>
 <p>トレーニング歴：<%= @user.history %></p>
 <p>自己紹介：<%= @user.introduce %></p>
+<% if current_user == @user %>
   <a href="<%= edit_user_path(@user) %>" class="btn btn-success">ユーザー情報を編集する</a>
+<% end %>
   </div>
 </div>
 </div>

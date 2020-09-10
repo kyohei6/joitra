@@ -1,11 +1,26 @@
+<style>
+  .like-btn {
+ width: 25px;
+ height: 30px;
+ font-size: 25px;
+ color: #808080; 
+ margin-left: 20px;
+ }
+
+.unlike-btn {
+ width: 25px;
+ height: 30px;
+ font-size: 25px;
+ color: #e54747;
+ margin-left: 20px;
+ }
+</style>
 <% if current_user.likes?(post) %>
-    <%= form_with(model: current_user.favorites.find_by(post_id: post.id), local: true, method: :delete) do |f| %>
-      <%= hidden_field_tag :post_id, post.id %>
-      <%= f.submit 'Unfavorite', class: 'btn btn-danger btn-sm' %>
-    <% end %>
+ <%= link_to favorite_path(id: post.id), method: :delete do %>
+    <i class="fas fa-heart unlike-btn"></i>
+  <% end %>
   <% else %>
-    <%= form_with(model: current_user.favorites.build, local: true) do |f| %>
-      <%= hidden_field_tag :post_id, post.id %>
-      <%= f.submit 'Favorite', class: 'btn btn-primary btn-sm' %>
-    <% end %>
+  <%= link_to favorites_path(post_id: post.id), method: :post do %>
+    <i class="far fa-heart like-btn" ></i>
+  <% end %>
   <% end %>

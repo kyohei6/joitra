@@ -12,7 +12,9 @@
          <div>
            <div style="display:inline-flex">
           <% if current_user == post.user %>
-            <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+            <%= link_to post_path(id: post.id), method: :delete do %>
+            <i class="fas fa-trash" style="color:white;"></i>
+            <% end %>
           <% end %>
           <%= render 'favorites/favorite_button', post: post %>
           </div>
