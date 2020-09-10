@@ -13,9 +13,9 @@ class PostsController < ApplicationController
       flash[:success] = 'メッセージを投稿しました。'
       redirect_to posts_url
     else
-      @posts = current_user.feed_microposts.order(id: :desc).page(params[:page])
+      @posts = current_user.feed_posts.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
-      render "posts#index"
+      render action: :index
     end
   end
 
