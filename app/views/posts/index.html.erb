@@ -1,12 +1,11 @@
 <style>
-header {
-  padding:16px;
-}
+ 
   .main {
-    margin-top:50px;
+    margin-top:100px;
   }
+  
   body {
-      background-image: url("<%= asset_path('joitra6.jpg') %>");
+      background-image: url("<%= asset_path('joitra17.jpg') %>");
       background-size: cover;
     }
 </style>
@@ -19,7 +18,7 @@ header {
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        <li class="nav-item"><a href="<%= users_path %>" class="nav-link">USER</a></li>
+        <li class="nav-item"><a href="<%= users_path %>" class="nav-link">USERS</a></li>
         <li class="nav-item"><a href="<%= posts_path %>" class="nav-link">POST</a></li>
         <li class="nav-item"><a href="<%= rooms_path %>" class="nav-link">CHAT</a></li>
         <li class="nav-item dropdown">
@@ -34,6 +33,7 @@ header {
     </div>
   </nav>
 </header>
+<%= render 'layouts/flash_messages' %>
 <div class="main">
 <div class="row">
     <aside class="col-sm-4">
